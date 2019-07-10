@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Jobcard.Views.Landing.MasterPage"
+             Title="Jobbie">
+<ContentPage.Content>
+        <StackLayout x:Name="MasterStack" VerticalOptions="FillAndExpand">
+            
+            <StackLayout x:Name="TopStack">
+                <Image x:Name="LoginIcon" Source="LoginImage2.png" Margin="0,0,0,0"/>
+                <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+            </StackLayout>
+            
+            <StackLayout x:Name="MiddleStack" VerticalOptions="FillAndExpand">
+                <ListView x:Name="listview" SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid BackgroundColor="{Binding BackgroundColor}">
+                                    <Image Source="{Binding IconSource}" Margin="0,10,0,10"/>
+                                    <Label Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Text="{Binding Title}" TextColor="Black" FontSize="Small"/>
+                                </Grid>
+                            </ViewCell>   
+                        </DataTemplate>
+                    </ListView.ItemTemplate>    
+                </ListView>
+            </StackLayout>
+
+            <StackLayout x:Name="LowerStack" VerticalOptions="EndAndExpand">
+                <Button x:Name ="LogOut" Text="Log Out" Clicked="GoToAddJob"/>
+            </StackLayout>
+    
+
+
+
+
+
+        </StackLayout>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </ContentPage.Content>
+
+
+
+
+
+</ContentPage>

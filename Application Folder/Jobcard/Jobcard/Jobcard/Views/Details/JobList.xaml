@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Jobcard.Views.Details.JobList">
+    <StackLayout x:Name="MainLayout">
+        <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+        <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <ListView x:Name="listview" SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="White">
+                                <Label Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Text="{Binding Description}" TextColor="Black" FontSize="Small"/>
+                                <Label Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Text="{Binding CompanyName}" TextColor="Black" FontSize="Small"/>
+                                <Label Grid.Column="2 " HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Text="{Binding Urgency}" TextColor="Black" FontSize="Small"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator IsRunning="True" Color="LightBlue" x:Name="ActivitySpinner"
+                                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
+                                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
+        </RelativeLayout>
+
+
+    </StackLayout>
+</ContentPage> 
