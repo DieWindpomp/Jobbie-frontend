@@ -519,11 +519,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj",
+      "projectUniqueName": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj",
       "projectName": "Jobcard",
-      "projectPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj",
+      "projectPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj",
       "packagesPath": "C:\\Users\\Daniel Maree\\.nuget\\packages\\",
-      "outputPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\obj\\",
+      "outputPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -13,7 +13,7 @@
                 <Label Text="Job Details" HorizontalOptions="Center" VerticalOptions="Center"/>
             </StackLayout>
 
-            <ActivityIndicator IsRunning="True" Color="LightBlue" x:Name="ActivitySpinner"
+            <ActivityIndicator IsRunning="False" Color="LightBlue" x:Name="ActivitySpinner"
                                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
                                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />

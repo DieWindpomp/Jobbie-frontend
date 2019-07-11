@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Jobcard.Views.Details.AddClient">
+    <StackLayout x:Name="MainLayout">
+        <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+
+        <Label x:Name="lblName" Text="Name" FontSize="Medium" FontAttributes="Bold"/>
+        <Entry x:Name ="edtName" Placeholder="Name"/>
+        <Label x:Name="lblSurname" Text="Surname" FontSize="Medium" FontAttributes="Bold"/>
+        <Entry x:Name ="edtSurname" Placeholder="Surname"/>
+        <Label x:Name="lblContact" Text="Telephone Number" FontSize="Medium" FontAttributes="Bold"/>
+        <Entry x:Name ="edtContact" Placeholder="Telephone Number"/>
+        <Label x:Name="lblCompany" Text="Company Name" FontSize="Medium" FontAttributes="Bold"/>
+        <Entry x:Name ="edtCompany" Placeholder="Company Name"/>
+
+
+        <Button x:Name ="btnAddUser" Text="ADD CLIENT" Clicked="AddClientProcedure" TextColor="White"/>
+
+        <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="SubLayout" 
+                             Orientation="Vertical" 
+                             VerticalOptions="FillAndExpand" 
+                             RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}}">
+            </StackLayout>
+
+            <ActivityIndicator IsRunning="True" Color="LightBlue" x:Name="ActivitySpinner"
+                                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
+                                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
+
+        </RelativeLayout>
+
+
+    </StackLayout>
+</ContentPage>

@@ -8233,11 +8233,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard.UWP\\Jobcard.UWP.csproj",
+      "projectUniqueName": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard.UWP\\Jobcard.UWP.csproj",
       "projectName": "Jobcard.UWP",
-      "projectPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard.UWP\\Jobcard.UWP.csproj",
+      "projectPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard.UWP\\Jobcard.UWP.csproj",
       "packagesPath": "C:\\Users\\Daniel Maree\\.nuget\\packages\\",
-      "outputPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard.UWP\\obj\\",
+      "outputPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -8257,8 +8257,8 @@
       "frameworks": {
         "uap10.0.16299": {
           "projectReferences": {
-            "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj": {
-              "projectPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj"
+            "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj": {
+              "projectPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj"
             }
           }
         }

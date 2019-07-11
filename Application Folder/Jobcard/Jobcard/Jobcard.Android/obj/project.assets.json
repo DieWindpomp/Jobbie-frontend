@@ -1014,11 +1014,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard.Android\\Jobcard.Android.csproj",
+      "projectUniqueName": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard.Android\\Jobcard.Android.csproj",
       "projectName": "Jobcard.Android",
-      "projectPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard.Android\\Jobcard.Android.csproj",
+      "projectPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard.Android\\Jobcard.Android.csproj",
       "packagesPath": "C:\\Users\\Daniel Maree\\.nuget\\packages\\",
-      "outputPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard.Android\\obj\\",
+      "outputPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1035,8 +1035,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj": {
-              "projectPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj"
+            "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj": {
+              "projectPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj"
             }
           }
         }

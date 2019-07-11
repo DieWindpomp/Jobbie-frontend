@@ -28,8 +28,10 @@ namespace Jobcard.Views.Landing
             items.Add(new MasterMenuItem("Job List", "document.png", Color.White, typeof(JobList)));
             items.Add(new MasterMenuItem("Current Job Details", "document.png", Color.White, typeof(JobDetail)));
             items.Add(new MasterMenuItem("Add Job", "plus.png", Color.White, typeof(AddJob)));
+            items.Add(new MasterMenuItem("Add Employee", "plus.png", Color.White, typeof(AddEmployee)));
+            items.Add(new MasterMenuItem("Add Client", "plus.png", Color.White, typeof(AddClient)));
 
-            
+
             ListView.ItemsSource = items;
         }
         async void GoToAddJob(object sender, EventArgs e)

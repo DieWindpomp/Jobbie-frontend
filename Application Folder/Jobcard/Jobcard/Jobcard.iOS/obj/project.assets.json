@@ -1088,11 +1088,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard.iOS\\Jobcard.iOS.csproj",
+      "projectUniqueName": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard.iOS\\Jobcard.iOS.csproj",
       "projectName": "Jobcard.iOS",
-      "projectPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard.iOS\\Jobcard.iOS.csproj",
+      "projectPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard.iOS\\Jobcard.iOS.csproj",
       "packagesPath": "C:\\Users\\Daniel Maree\\.nuget\\packages\\",
-      "outputPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard.iOS\\obj\\",
+      "outputPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1109,8 +1109,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj": {
-              "projectPath": "D:\\UNI\\Btech Project\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj"
+            "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj": {
+              "projectPath": "D:\\UNI\\Btech Project\\Gitkraken\\Jobbie-frontend\\Application Folder\\Jobcard\\Jobcard\\Jobcard\\Jobcard.csproj"
             }
           }
         }
