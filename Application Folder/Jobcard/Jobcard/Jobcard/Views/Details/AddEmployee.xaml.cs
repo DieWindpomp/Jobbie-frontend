@@ -16,7 +16,7 @@ namespace Jobcard.Views.Details
 		{
 			InitializeComponent ();
 		}
-        void AddUserProcedure()
+        void AddUserProcedure(object sender, EventArgs e)
         { }
 
     }

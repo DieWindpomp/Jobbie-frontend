@@ -13,7 +13,7 @@ namespace Jobcard.Models
         public static Color MaintextColor = Color.FromRgb(38,133,197);
         public static int LoginIconHeight = 120;
 
-        public static string URL = "https://green-seahorse-7.localtunnel.me/api";
+        public static string URL = "https://brave-zebra-35.localtunnel.me/api";
 
         public static int EmpID;
 

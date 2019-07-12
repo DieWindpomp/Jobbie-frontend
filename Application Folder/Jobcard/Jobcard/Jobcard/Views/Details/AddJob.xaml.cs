@@ -36,6 +36,7 @@ namespace Jobcard.Views.Details
         }
         async void AddJobProcedure(object sender, EventArgs e)
         {
+            ActivitySpinner.IsRunning = true;
             Job job = new Job();
             job.JobDescription = edtDescription.Text;
             job.LocationID = int.Parse(edtLocation.Text);
@@ -45,7 +46,7 @@ namespace Jobcard.Views.Details
             job.EmpID = Constants.EmpID;
             //empid = constants
             HttpClient client = new HttpClient();
-            string url = Constants.URL + $"/job/AddJob/?description={job.JobDescription}&locationID={job.LocationID}&urgency={job.Urgency}&date={job.Date.ToShortDateString()}&comment={job.Comment}&empid={job.EmpID}";
+            string url = Constants.URL + $"/job/AddJob/";
             var uri = new Uri(url);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response;
@@ -58,9 +59,9 @@ namespace Jobcard.Views.Details
             }
             else
             {
-                await DisplayAlert("Job", "Unsuccessfull", "Okay");
+                await DisplayAlert("Job", response.ToString(), "Okay");
             }
-
+            ActivitySpinner.IsRunning = false;
         }
     }
 }
