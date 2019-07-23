@@ -27,7 +27,7 @@ namespace Jobcard.Views
         async void LoginProcedure(object sender, EventArgs e)
         {
             ActivitySpinner.IsVisible = true;
-
+            Constants.URL = edtServer.Text + "/api";
             Employee employee = new Employee(edtUsername.Text, edtPasword.Text);
             //in ap rest API
 
@@ -63,6 +63,7 @@ namespace Jobcard.Views
             BackgroundColor = Constants.BackgroundColor;
             lblPassword.TextColor = Constants.MaintextColor;
             lblUsername.TextColor = Constants.MaintextColor;
+            lblServer.TextColor = Constants.MaintextColor;
             ActivitySpinner.IsVisible = false;
             LoginIcon.HeightRequest = Constants.LoginIconHeight;
             btnLogin.BackgroundColor = Color.FromRgb(38, 133, 197);
