@@ -4,21 +4,32 @@
              x:Class="Jobcard.Views.Details.JobDetail">
     <StackLayout x:Name="MainLayout">
         <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
-        <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <StackLayout x:Name="SubLayout" 
-                             Orientation="Vertical" 
-                             VerticalOptions="FillAndExpand" 
-                             RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}}"
-                              RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}}">
-                <Label Text="Job Details" HorizontalOptions="Center" VerticalOptions="Center"/>
-            </StackLayout>
-
-            <ActivityIndicator IsRunning="False" Color="LightBlue" x:Name="ActivitySpinner"
+        <ActivityIndicator IsRunning="False" Color="LightBlue" x:Name="ActivitySpinner"
                                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
                                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
+        
+        <Label x:Name="lblJobHeader" HorizontalTextAlignment="Start"/>
+        <Label x:Name="lblJobLocation" HorizontalTextAlignment="Start"/>
+        <Label x:Name="lblJobDescription" HorizontalTextAlignment="Start"/>
+        <Label x:Name="lblViewOnMaps" HorizontalTextAlignment="Start"/>
+        <Label x:Name="lblClientName" HorizontalTextAlignment="Start"/>
+        <Label x:Name="lblComment" HorizontalTextAlignment="Start"/>
+        <Grid BackgroundColor="White">
+            <ImageButton Grid.Column="0" x:Name="btnBack"/>
+            <Picker Grid.Column="1" x:Name ="pickUrgency" Title="Choose Urgency">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Complete</x:String>
+                        <x:String>Comment</x:String>
+                        <x:String>Cancel</x:String>
+                        <x:String>Delete</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <ImageButton Grid.Column="2 " x:Name="btnConfirm"/>
+        </Grid>
 
-        </RelativeLayout>
 
 
     </StackLayout>

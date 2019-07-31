@@ -25,8 +25,8 @@ namespace Jobcard.Views.Landing
         void SetItems()
         {
             items = new List<MasterMenuItem>();
-            items.Add(new MasterMenuItem("Job List", "document.png", Color.White, typeof(JobList)));
             items.Add(new MasterMenuItem("Current Job Details", "document.png", Color.White, typeof(JobDetail)));
+            items.Add(new MasterMenuItem("Job List", "document.png", Color.White, typeof(JobList)));
             items.Add(new MasterMenuItem("Add Job", "plus.png", Color.White, typeof(AddJob)));
             items.Add(new MasterMenuItem("Add Employee", "plus.png", Color.White, typeof(AddEmployee)));
             items.Add(new MasterMenuItem("Add Client", "plus.png", Color.White, typeof(AddClient)));
@@ -34,7 +34,7 @@ namespace Jobcard.Views.Landing
 
             ListView.ItemsSource = items;
         }
-        async void GoToAddJob(object sender, EventArgs e)
+        async void Logout(object sender, EventArgs e)
         {
             bool x = await DisplayAlert("Logout", "Are you sure you wish to log out?", "Logout", "Cancel");
             if (x == true)

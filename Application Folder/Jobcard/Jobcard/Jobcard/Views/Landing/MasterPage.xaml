@@ -27,7 +27,7 @@
             </StackLayout>
 
             <StackLayout x:Name="LowerStack" VerticalOptions="EndAndExpand">
-                <Button x:Name ="LogOut" Text="Log Out" Clicked="GoToAddJob"/>
+                <Button x:Name ="LogOut" Text="Log Out" Clicked="Logout"/>
             </StackLayout>
     
 

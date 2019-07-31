@@ -12,6 +12,7 @@ namespace Jobcard.Models
         public string Address { get; set; }
         public string ClientDetails { get; set; }
         public string CompanyName { get; set; }
+        public int EmpID { get; set; }
 
         public override string ToString()
         {

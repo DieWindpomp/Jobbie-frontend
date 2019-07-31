@@ -2345,6 +2345,12 @@ namespace Jobcard.Droid
 			// aapt resource value: 0x7F090055
 			public const int avd_show_password = 2131296341;
 			
+			// aapt resource value: 0x7F010002
+			public const int back = 2130771970;
+			
+			// aapt resource value: 0x7F010003
+			public const int @checked = 2130771971;
+			
 			// aapt resource value: 0x7F090056
 			public const int design_bottom_navigation_item_background = 2131296342;
 			
@@ -2363,11 +2369,11 @@ namespace Jobcard.Droid
 			// aapt resource value: 0x7F09005B
 			public const int design_snackbar_background = 2131296347;
 			
-			// aapt resource value: 0x7F010002
-			public const int document = 2130771970;
+			// aapt resource value: 0x7F010004
+			public const int document = 2130771972;
 			
-			// aapt resource value: 0x7F010003
-			public const int icon = 2130771971;
+			// aapt resource value: 0x7F010005
+			public const int icon = 2130771973;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
@@ -2900,11 +2906,11 @@ namespace Jobcard.Droid
 			// aapt resource value: 0x7F090104
 			public const int ic_vol_type_tv_light = 2131296516;
 			
-			// aapt resource value: 0x7F010004
-			public const int LoginIcon = 2130771972;
+			// aapt resource value: 0x7F010006
+			public const int LoginIcon = 2130771974;
 			
-			// aapt resource value: 0x7F010005
-			public const int LoginImage2 = 2130771973;
+			// aapt resource value: 0x7F010007
+			public const int LoginImage2 = 2130771975;
 			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;
@@ -3005,11 +3011,11 @@ namespace Jobcard.Droid
 			// aapt resource value: 0x7F09000C
 			public const int notify_panel_notification_icon_bg = 2131296268;
 			
-			// aapt resource value: 0x7F010006
-			public const int padlock = 2130771974;
+			// aapt resource value: 0x7F010008
+			public const int padlock = 2130771976;
 			
-			// aapt resource value: 0x7F010007
-			public const int plus = 2130771975;
+			// aapt resource value: 0x7F010009
+			public const int plus = 2130771977;
 			
 			// aapt resource value: 0x7F090069
 			public const int tooltip_frame_dark = 2131296361;

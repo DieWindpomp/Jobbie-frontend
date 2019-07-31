@@ -11,7 +11,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <details:JobList/>
+                <details:JobDetail/>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
