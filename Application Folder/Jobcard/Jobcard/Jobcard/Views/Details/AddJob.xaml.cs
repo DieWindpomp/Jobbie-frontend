@@ -33,9 +33,11 @@ namespace Jobcard.Views.Details
             btnAddJob.BackgroundColor = Constants.MaintextColor;
 
             ActivitySpinner.IsRunning = false;
+            ActivitySpinner.IsVisible = false;
         }
         async void AddJobProcedure(object sender, EventArgs e)
         {
+            ActivitySpinner.IsVisible = true;
             ActivitySpinner.IsRunning = true;
             Job job = new Job();
             job.JobDescription = edtDescription.Text;
@@ -62,6 +64,7 @@ namespace Jobcard.Views.Details
                 await DisplayAlert("Job", response.ToString(), "Okay");
             }
             ActivitySpinner.IsRunning = false;
+            ActivitySpinner.IsVisible = false;
         }
     }
 }

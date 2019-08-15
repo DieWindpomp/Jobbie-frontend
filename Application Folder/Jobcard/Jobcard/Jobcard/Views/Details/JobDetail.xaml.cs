@@ -49,8 +49,7 @@ namespace Jobcard.Views.Details
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Jobs", "No Active Job", "Okay");
-                
+                await DisplayAlert("Jobs", "No Active Job", "Okay");                
             }
 
 

@@ -23,7 +23,5 @@
                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
                                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
         </RelativeLayout>
-
-
     </StackLayout>
 </ContentPage> 

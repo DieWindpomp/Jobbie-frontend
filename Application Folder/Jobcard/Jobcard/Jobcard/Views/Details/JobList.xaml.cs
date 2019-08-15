@@ -38,7 +38,6 @@ namespace Jobcard.Views.Details
         {
             items = new List<JobListItem>();
             ActivitySpinner.IsVisible = true;
-
             HttpClient client = new HttpClient();
             string url = Constants.URL + "/job/GetJobsByEmp/"+Constants.EmpID;
             var result = await client.GetAsync(url);
@@ -51,18 +50,14 @@ namespace Jobcard.Views.Details
             }
             catch (Exception ex)
             { await DisplayAlert("Jobs", "No Jobs On List", "Okay"); }
-
-
         }
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            
+        {         
             var item = e.SelectedItem as JobListItem;
             bool SetActive = await DisplayAlert("Set as active job",item.ToString(),"Yes","No");
             item.EmpID = Constants.EmpID;
             if (SetActive == true)
-            {
-                
+            {             
                 HttpClient client = new HttpClient();
                 string url = Constants.URL + $"/job/SetActive/";
                 var uri = new Uri(url);
@@ -81,6 +76,9 @@ namespace Jobcard.Views.Details
                 }
                 ActivitySpinner.IsRunning = false;
             }
+
+            ListView.ItemsSource = items;
+
         }
     }
 }

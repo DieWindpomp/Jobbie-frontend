@@ -17,7 +17,7 @@
         <Label x:Name="lblComment" HorizontalTextAlignment="Start"/>
         <Grid BackgroundColor="White">
             <ImageButton Grid.Column="0" x:Name="btnBack"/>
-            <Picker Grid.Column="1" x:Name ="pickUrgency" Title="Choose Urgency">
+            <Picker Grid.Column="1" x:Name ="pickUrgency" Title="Choose Action">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Complete</x:String>
