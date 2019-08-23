@@ -6,18 +6,15 @@ namespace Jobcard.Models
 {
     public class Client
     {
-        public string ClientID { get; set; }
-        public string ClientName { get; set; }
-        public string ClientSurname { get; set; }
-        public string ClientContact { get; set; }
-        public string CompanyName { get; set; }
+        public string id { get; set; }
+        public string CName { get; set; }
+        public string CSurname { get; set; }
+        public string CContact { get; set; }
+        public string Company { get; set; }
 
-        public Client(string ClientID, string ClientName, string ClientSurname, string ClientContact, string CompanyName)
+        public Client()
         {
-            this.ClientID = ClientID;
-            this.ClientName = ClientName;
-            this.ClientSurname = ClientSurname;
-            this.CompanyName = CompanyName;
+
         }
     }
 }

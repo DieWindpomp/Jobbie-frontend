@@ -24,6 +24,9 @@ namespace Jobcard.Views.Details
         {
             App.StartCheckIfInternet(lbl_NoInternet, this);
             GetJob(Constants.EmpID);
+            lblJobLocation.TextColor= Constants.MaintextColor;
+            lblJobDescription.TextColor = Constants.MaintextColor;
+            lblClientName.TextColor = Constants.MaintextColor;
             btnConfirm.Source = "checked.png";
             btnBack.Source = "back.png";
             

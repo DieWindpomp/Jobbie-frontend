@@ -17,8 +17,6 @@
             </StackLayout.Padding>
 
             <ActivityIndicator x:Name="ActivitySpinner" Color="LightBlue" IsRunning="True"/>
-            <Label x:Name="lblServer" Text="Server Name" FontSize="Medium" FontAttributes="Bold"/>
-            <Entry x:Name ="edtServer" Placeholder="Server" />
             <Label x:Name="lblUsername" Text="Username" FontSize="Medium" FontAttributes="Bold"/>
             <Entry x:Name ="edtUsername" Placeholder="Username" />
             <Label x:Name="lblPassword" Text="Password" FontSize="Medium" FontAttributes="Bold"/>

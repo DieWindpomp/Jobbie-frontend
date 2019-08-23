@@ -27,7 +27,7 @@ namespace Jobcard.Views
         async void LoginProcedure(object sender, EventArgs e)
         {
             ActivitySpinner.IsVisible = true;
-            Constants.URL = "https://"+edtServer.Text + ".localtunnel.me/api";
+            Constants.URL = "http://254a1d99.ngrok.io/api";
             Employee employee = new Employee(edtUsername.Text, edtPasword.Text);
             //in ap rest API
 
@@ -63,7 +63,6 @@ namespace Jobcard.Views
             BackgroundColor = Constants.BackgroundColor;
             lblPassword.TextColor = Constants.MaintextColor;
             lblUsername.TextColor = Constants.MaintextColor;
-            lblServer.TextColor = Constants.MaintextColor;
             ActivitySpinner.IsVisible = false;
             LoginIcon.HeightRequest = Constants.LoginIconHeight;
             btnLogin.BackgroundColor = Color.FromRgb(38, 133, 197);
@@ -71,7 +70,6 @@ namespace Jobcard.Views
             App.StartCheckIfInternet(lbl_NoInternet, this);
 
             
-            edtServer.Completed += (s, e) => edtUsername.Focus();
             edtUsername.Completed += (s, e) => edtPasword.Focus();
             edtPasword.Completed += (s, e) => LoginProcedure(s,e);
         }

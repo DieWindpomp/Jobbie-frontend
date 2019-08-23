@@ -30,6 +30,7 @@ namespace Jobcard.Views.Landing
             items.Add(new MasterMenuItem("Add Job", "plus.png", Color.White, typeof(AddJob)));
             items.Add(new MasterMenuItem("Add Employee", "plus.png", Color.White, typeof(AddEmployee)));
             items.Add(new MasterMenuItem("Add Client", "plus.png", Color.White, typeof(AddClient)));
+            items.Add(new MasterMenuItem("Add Location", "plus.png", Color.White, typeof(AddLocation)));
 
 
             ListView.ItemsSource = items;

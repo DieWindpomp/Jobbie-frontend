@@ -36,14 +36,15 @@ namespace Jobcard.Views.Details
         }
         async void SetItems()
         {
-            items = new List<JobListItem>();
-            ActivitySpinner.IsVisible = true;
-            HttpClient client = new HttpClient();
-            string url = Constants.URL + "/job/GetJobsByEmp/"+Constants.EmpID;
-            var result = await client.GetAsync(url);
-            var json = await result.Content.ReadAsStringAsync();
+
             try
             {
+                items = new List<JobListItem>();
+                ActivitySpinner.IsVisible = true;
+                HttpClient client = new HttpClient();
+                string url = Constants.URL + "/job/GetJobsByEmp/" + Constants.EmpID;
+                var result = await client.GetAsync(url);
+                var json = await result.Content.ReadAsStringAsync();
                 items = Newtonsoft.Json.JsonConvert.DeserializeObject<List<JobListItem>>(json);
                 ActivitySpinner.IsVisible = false;
                 ListView.ItemsSource = items;
@@ -51,6 +52,11 @@ namespace Jobcard.Views.Details
             catch (Exception ex)
             { await DisplayAlert("Jobs", "No Jobs On List", "Okay"); }
         }
+
+        
+
+
+
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {         
             var item = e.SelectedItem as JobListItem;
@@ -76,6 +82,7 @@ namespace Jobcard.Views.Details
                 }
                 ActivitySpinner.IsRunning = false;
             }
+
 
             ListView.ItemsSource = items;
 
