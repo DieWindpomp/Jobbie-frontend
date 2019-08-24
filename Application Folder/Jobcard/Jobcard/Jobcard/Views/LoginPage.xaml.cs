@@ -27,7 +27,7 @@ namespace Jobcard.Views
         async void LoginProcedure(object sender, EventArgs e)
         {
             ActivitySpinner.IsVisible = true;
-            Constants.URL = "http://254a1d99.ngrok.io/api";
+            
             Employee employee = new Employee(edtUsername.Text, edtPasword.Text);
             //in ap rest API
 

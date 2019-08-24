@@ -13,7 +13,7 @@ namespace Jobcard.Models
         public static Color MaintextColor = Color.FromRgb(38,133,197);
         public static int LoginIconHeight = 120;
 
-        public static string URL = "";
+        public static string URL = "https://8e014b8a.ngrok.io/api";
 
         public static int EmpID;
 

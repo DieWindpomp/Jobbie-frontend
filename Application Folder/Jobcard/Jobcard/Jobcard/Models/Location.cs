@@ -9,6 +9,7 @@ namespace Jobcard.Models
         public string id { get; set; }
         public string Coordinates { get; set; }
         public string Address { get; set; }
+        public string ClientID { get; set; }
 
         public Location()
         {
