@@ -12,22 +12,23 @@
         <Label x:Name="lblJobHeader" HorizontalTextAlignment="Start" FontSize="Large"/>
         <Label x:Name="lblJobLocation" HorizontalTextAlignment="Start" FontSize="Large"/>
         <Label x:Name="lblJobDescription" HorizontalTextAlignment="Start" FontSize="Large"/>
-        <Label x:Name="lblViewOnMaps" HorizontalTextAlignment="Start" FontSize="Large"/>
+        <Label x:Name="lblViewOnMaps" Text="View in Maps" HorizontalTextAlignment="Start" FontSize="Large"/>
         <Label x:Name="lblClientName" HorizontalTextAlignment="Start" FontSize="Medium"/>
         <Label x:Name="lblComment" HorizontalTextAlignment="Start" FontSize="Medium"/>
         <Grid BackgroundColor="White" VerticalOptions="EndAndExpand">
             <ImageButton Grid.Column="0" x:Name="btnBack"/>
-            <Picker Grid.Column="1" x:Name ="pickUrgency" Title="Choose Action">
+            <Picker Grid.Column="1" x:Name ="pickAction" Title="Choose Action">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Complete</x:String>
                         <x:String>Comment</x:String>
                         <x:String>Cancel</x:String>
                         <x:String>Delete</x:String>
+                        <x:String>View On Map</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
-            <ImageButton Grid.Column="2 " x:Name="btnConfirm"/>
+            <ImageButton Grid.Column="2 " x:Name="btnConfirm" Clicked="btnConfirm_clicked"/>
         </Grid>
 
 
