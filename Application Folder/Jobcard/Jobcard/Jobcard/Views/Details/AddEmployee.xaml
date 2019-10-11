@@ -11,8 +11,18 @@
         <Entry x:Name ="edtSurname" Placeholder="Surname"/>
         <Label x:Name="lblContact" Text="Telephone Number" FontSize="Medium" FontAttributes="Bold"/>
         <Entry x:Name ="edtContact" Placeholder="Telephone Number"/>
+        <Label x:Name="lblCheckAdmin" Text="Admin?" FontSize="Medium" FontAttributes="Bold"/>
+        <Switch x:Name="switchAdmin" IsToggled="False" HorizontalOptions="StartAndExpand"/>
+       
+
+
+
+
         <Label x:Name="lblPassword" Text="Password" FontSize="Medium" FontAttributes="Bold"/>
         <Entry x:Name ="edtPassword" Placeholder="Password" IsPassword="True"/>
+        
+        
+        
 
 
         <Button x:Name ="btnAddUser" Text="ADD USER" Clicked="AddUserProcedure" TextColor="White"/>
@@ -25,7 +35,7 @@
                               RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}}">
             </StackLayout>
 
-            <ActivityIndicator IsRunning="True" Color="LightBlue" x:Name="ActivitySpinner"
+            <ActivityIndicator IsRunning="False" Color="LightBlue" x:Name="ActivitySpinner"
                                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
                                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />

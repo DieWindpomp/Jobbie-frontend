@@ -1,4 +1,5 @@
 ﻿using Jobcard.Models;
+using Jobcard.Views.Landing;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -40,10 +41,19 @@ namespace Jobcard.Views.Details
                 var json = JsonConvert.SerializeObject(addclient);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 response = await client.PostAsync(uri, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    await DisplayAlert("Client", "Successfully Added Client", "Okay");
+                    Application.Current.MainPage = new NavigationPage(new MasterDetail());
+                }
+                else
+                {
+                    await DisplayAlert("Client", response.ToString(), "Okay");
+                }
             }
             catch(Exception ex)
             {
-                await DisplayAlert("Client", "", "Okay");
+                await DisplayAlert("Client", "Error Occured", "Okay");
             }
             ActivitySpinner.IsVisible = false;
         }

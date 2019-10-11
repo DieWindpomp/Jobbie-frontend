@@ -1,4 +1,5 @@
 ﻿using Jobcard.Models;
+using Jobcard.Views.Landing;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,7 @@ namespace Jobcard.Views.Details
 
             ActivitySpinner.IsVisible = true;
             ActivitySpinner.IsRunning = true;
+
             Job job = new Job();
             job.JobDescription = edtDescription.Text;
             job.LocationID = int.Parse(locationstring);
@@ -56,6 +58,8 @@ namespace Jobcard.Views.Details
             job.Comment = edtComment.Text;
             job.EmpID = Constants.EmpID;
             //empid = constants
+
+
             HttpClient client = new HttpClient();
             string url = Constants.URL + $"/job/AddJob/";
             var uri = new Uri(url);
@@ -64,9 +68,10 @@ namespace Jobcard.Views.Details
             var json = JsonConvert.SerializeObject(job);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             response = await client.PostAsync(uri, content);
-            if (response.StatusCode==System.Net.HttpStatusCode.Accepted)
+            if (response.StatusCode==System.Net.HttpStatusCode.Created)
             {
                 await DisplayAlert("Job", "Successfully Added Job", "Okay");
+                Application.Current.MainPage = new NavigationPage(new MasterDetail());
             }
             else
             {
@@ -74,6 +79,7 @@ namespace Jobcard.Views.Details
             }
             ActivitySpinner.IsRunning = false;
             ActivitySpinner.IsVisible = false;
+
         }
 
         async void SetClients()

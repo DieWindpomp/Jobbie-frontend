@@ -12,6 +12,7 @@ using Xamarin.Essentials;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Globalization;
+using Jobcard.Views.Landing;
 
 namespace Jobcard.Views.Details
 {
@@ -70,13 +71,6 @@ namespace Jobcard.Views.Details
                 string lng = arraypoints[1];
                 longitude = Convert.ToDouble(arraypoints[1], CultureInfo.InvariantCulture);
 
-
-
-
-
-
-
-
             }
             catch (Exception ex)
             {
@@ -99,9 +93,10 @@ namespace Jobcard.Views.Details
             var json = JsonConvert.SerializeObject(job);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             response = await client.PostAsync(uri, content);
-            if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
             {
                 await DisplayAlert("Job", "Successfully Finished Job", "Okay");
+                Application.Current.MainPage = new NavigationPage(new MasterDetail());
             }
             else
             {
@@ -113,7 +108,7 @@ namespace Jobcard.Views.Details
 
         async void btnConfirm_clicked(object sender, EventArgs e)
         {
-           switch(pickAction.SelectedItem.ToString())
+            switch (pickAction.SelectedItem.ToString())
             {
                 case "View On Map":
                     await Map.OpenAsync(lattitude, longitude, new MapLaunchOptions { Name = job.ClientDetails });
@@ -121,11 +116,167 @@ namespace Jobcard.Views.Details
                 case "Complete":
                     completejob();
                     break;
+                case "Comment":
+                    Comment();
+                    break;
+                case "Cancel":
+                    Cancel();
+                    break;
+                case "Delete":
+                    DeleteJob();
+                    break;
                 case null:
                     break;
-            }
-            
+            }          
         }
+
+        async void DeleteJob()
+        {
+            HttpClient client = new HttpClient();
+            string url = Constants.URL + $"/job/RemoveJob/" + jobid;
+            var uri = new Uri(url);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response;
+            var json = JsonConvert.SerializeObject(job);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            response = await client.PostAsync(uri, content);
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                await DisplayAlert("Job", "Successfully Deleted Job", "Okay");
+                Application.Current.MainPage = new NavigationPage(new MasterDetail());
+            }
+            else
+            {
+                await DisplayAlert("Job", response.ToString(), "Okay");
+            }
+        }
+
+
+
+
+        async void Cancel()
+        {
+            HttpClient client = new HttpClient();
+            string url = Constants.URL + $"/job/SetUnactive/" + jobid;
+            var uri = new Uri(url);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response;
+            var json = JsonConvert.SerializeObject(job);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            response = await client.PostAsync(uri, content);
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                await DisplayAlert("Job", "Successfully Canceled Job", "Okay");
+                Application.Current.MainPage = new NavigationPage(new MasterDetail());
+            }
+            else
+            {
+                await DisplayAlert("Job", response.ToString(), "Okay");
+            }
+        }
+
+
+
+
+
+
+        async void Comment()
+        {
+            string Comment = await InputBox(this.Navigation,job.Comment);
+            if (Comment != null || Comment != "")
+            {
+                HttpClient client = new HttpClient();
+                string url = Constants.URL + $"/job/AddComment/" + jobid+"/"+ Comment;
+                var uri = new Uri(url);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response;
+                var json = JsonConvert.SerializeObject(job);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                response = await client.PostAsync(uri, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    await DisplayAlert("Job", "Successfully Added Comment", "Okay");
+                    Application.Current.MainPage = new NavigationPage(new MasterDetail());
+                }
+                else
+                {
+                    await DisplayAlert("Job", response.ToString(), "Okay");
+                }
+            }
+            else if(Comment == "")
+            {
+                await DisplayAlert("Job", "Comment should contain 1 or more characters", "Okay");
+            }
+ 
+        }
+
+        public static Task<string> InputBox(INavigation navigation,string Comment)
+        {
+
+            var tcs = new TaskCompletionSource<string>();
+
+            var lblTitle = new Label { Text = "Add Comment", HorizontalOptions = LayoutOptions.Center, FontAttributes = FontAttributes.Bold };
+            var lblMessage = new Label { Text = "Enter new Comment:" };
+            var txtInput = new Entry { Text = Comment};
+
+            var btnOk = new Button
+            {
+                Text = "Ok",
+                WidthRequest = 100,
+                BackgroundColor = Color.FromRgb(0.8, 0.8, 0.8),
+            };
+            btnOk.Clicked += async (s, e) =>
+            {
+                // close page
+                var result = txtInput.Text;
+                await navigation.PopModalAsync();
+                // pass result
+                tcs.SetResult(result);
+            };
+
+            var btnCancel = new Button
+            {
+                Text = "Cancel",
+                WidthRequest = 100,
+                BackgroundColor = Color.FromRgb(0.8, 0.8, 0.8)
+            };
+            btnCancel.Clicked += async (s, e) =>
+            {
+                // close page
+                await navigation.PopModalAsync();
+                // pass empty result
+                tcs.SetResult(null);
+            };
+
+            var slButtons = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                Children = { btnOk, btnCancel },
+            };
+
+            var layout = new StackLayout
+            {
+                Padding = new Thickness(0, 40, 0, 0),
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                Orientation = StackOrientation.Vertical,
+                Children = { lblTitle, lblMessage, txtInput, slButtons },
+            };
+
+            // create and show page
+            var page = new ContentPage();
+            page.Content = layout;
+            navigation.PushModalAsync(page);
+            // open keyboard
+            txtInput.Focus();
+
+            // code is waiting her, until result is passed with tcs.SetResult() in btn-Clicked
+            // then proc returns the result
+            return tcs.Task;
+        }
+
+
+
 
 
     }

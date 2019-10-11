@@ -39,12 +39,13 @@ namespace Jobcard.Views
             try
             {
                 feedback = Newtonsoft.Json.JsonConvert.DeserializeObject<Employee>(json);
-                if (feedback.id >= 1)
+                if (result.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     await DisplayAlert("Login", "Login Success", "Okay");
                     Constants.EmpID = feedback.id;
+                    Constants.Admin = feedback.Admin;
                     Application.Current.MainPage = new NavigationPage(new MasterDetail());
-
+                    Console.WriteLine(feedback.Admin);
                 }
                 else
                 {

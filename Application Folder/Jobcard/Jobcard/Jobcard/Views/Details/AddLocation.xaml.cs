@@ -1,4 +1,5 @@
 ﻿using Jobcard.Models;
+using Jobcard.Views.Landing;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace Jobcard.Views.Details
                 ActivitySpinner.IsVisible = true;
                 ActivitySpinner.IsRunning = true;
                 Location location = new Location();
-                location.Coordinates = "1234568487, 1233548";
+                location.Coordinates = edtCoord.Text;
                 location.Address = edtAddress.Text;
                 location.ClientID = clientstring;
 
@@ -47,9 +48,10 @@ namespace Jobcard.Views.Details
                 var json = JsonConvert.SerializeObject(location);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 response = await client.PostAsync(uri, content);
-                if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
                 {
                     await DisplayAlert("Job", "Successfully Added Job", "Okay");
+                    Application.Current.MainPage = new NavigationPage(new MasterDetail());
                 }
                 else
                 {
@@ -57,6 +59,9 @@ namespace Jobcard.Views.Details
                 }
                 ActivitySpinner.IsRunning = false;
                 ActivitySpinner.IsVisible = false;
+
+                
+
             }
             catch(Exception ex)
             {
@@ -70,6 +75,7 @@ namespace Jobcard.Views.Details
             SetClients();
             lblClient.TextColor = Constants.MaintextColor;
             lblAddress.TextColor = Constants.MaintextColor;
+            lblCoordinates.TextColor = Constants.MaintextColor;
             btnAddLocation.BackgroundColor = Constants.MaintextColor;
 
         }

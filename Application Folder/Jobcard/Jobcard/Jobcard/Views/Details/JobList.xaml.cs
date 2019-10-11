@@ -1,5 +1,6 @@
 ﻿using Jobcard.Data;
 using Jobcard.Models;
+using Jobcard.Views.Landing;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -72,9 +73,10 @@ namespace Jobcard.Views.Details
                 var json = JsonConvert.SerializeObject(item);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 response = await client.PostAsync(uri, content);
-                if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError || response.StatusCode == System.Net.HttpStatusCode.Created)
                 {
-                    await DisplayAlert("Job", "Successfully Added Job", "Okay");
+                    await DisplayAlert("Job", "Successfully Selected Job", "Okay");
+                    Application.Current.MainPage = new NavigationPage(new MasterDetail());   
                 }
                 else
                 {
