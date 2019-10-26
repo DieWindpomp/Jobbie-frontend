@@ -23,6 +23,7 @@ namespace Jobcard.Views.Details
         double longitude;
         int jobid;
         JobDetailModel job = null;
+        Constants c = new Constants();
 
         public JobDetail ()
 		{
@@ -37,7 +38,6 @@ namespace Jobcard.Views.Details
             lblJobDescription.TextColor = Constants.MaintextColor;
             lblClientName.TextColor = Constants.MaintextColor;
             btnConfirm.Source = "checked.png";
-            btnBack.Source = "back.png";
             pickAction.SelectedItem = 4;
             
 
@@ -106,7 +106,7 @@ namespace Jobcard.Views.Details
 
 
 
-        async void btnConfirm_clicked(object sender, EventArgs e)
+        async void BtnConfirm_clicked(object sender, EventArgs e)
         {
             switch (pickAction.SelectedItem.ToString())
             {
@@ -125,10 +125,31 @@ namespace Jobcard.Views.Details
                 case "Delete":
                     DeleteJob();
                     break;
+                case "Call Client":
+                    CallClient();
+                    break;
                 case null:
                     break;
             }          
         }
+
+        async void CallClient()
+        {
+            try
+            {
+                string client = lblClientName.Text;
+
+                string ClientCell = client.Substring(client.IndexOf("-") + 2, 10);
+
+                PhoneDialer.Open(ClientCell);
+            }
+            catch(Exception ex)
+            {
+                await DisplayAlert("Job", "Call Error", "Okay");
+            }
+            
+        }
+
 
         async void DeleteJob()
         {
@@ -183,7 +204,8 @@ namespace Jobcard.Views.Details
         async void Comment()
         {
             string Comment = await InputBox(this.Navigation,job.Comment);
-            if (Comment != null || Comment != "")
+            
+            if (Comment != null && Comment != "" && c.isAllString(Comment)==true)
             {
                 HttpClient client = new HttpClient();
                 string url = Constants.URL + $"/job/AddComment/" + jobid+"/"+ Comment;
@@ -200,12 +222,20 @@ namespace Jobcard.Views.Details
                 }
                 else
                 {
-                    await DisplayAlert("Job", response.ToString(), "Okay");
+                    await DisplayAlert("Job", "Server Communication Error", "Okay");
                 }
             }
             else if(Comment == "")
             {
                 await DisplayAlert("Job", "Comment should contain 1 or more characters", "Okay");
+            }
+            else if (Comment == null)
+            {
+                await DisplayAlert("Job", "Operation Cancelled", "Okay");
+            }
+            else if (c.isAllString(Comment) != true)
+            {
+                await DisplayAlert("Job", "Comment should contain only letters A-Z", "Okay");
             }
  
         }
@@ -215,15 +245,17 @@ namespace Jobcard.Views.Details
 
             var tcs = new TaskCompletionSource<string>();
 
-            var lblTitle = new Label { Text = "Add Comment", HorizontalOptions = LayoutOptions.Center, FontAttributes = FontAttributes.Bold };
-            var lblMessage = new Label { Text = "Enter new Comment:" };
+            var lblTitle = new Label { Text = "Add Comment", HorizontalOptions = LayoutOptions.Center, FontAttributes = FontAttributes.Bold , TextColor = Constants.MaintextColor };
+            var lblMessage = new Label { Text = "Enter new Comment:" , TextColor = Constants.MaintextColor };
             var txtInput = new Entry { Text = Comment};
 
             var btnOk = new Button
             {
                 Text = "Ok",
                 WidthRequest = 100,
-                BackgroundColor = Color.FromRgb(0.8, 0.8, 0.8),
+
+                BackgroundColor = Constants.MaintextColor,
+                TextColor = Color.White,
             };
             btnOk.Clicked += async (s, e) =>
             {
@@ -238,7 +270,9 @@ namespace Jobcard.Views.Details
             {
                 Text = "Cancel",
                 WidthRequest = 100,
-                BackgroundColor = Color.FromRgb(0.8, 0.8, 0.8)
+
+                BackgroundColor = Constants.MaintextColor,
+                TextColor = Color.White,
             };
             btnCancel.Clicked += async (s, e) =>
             {

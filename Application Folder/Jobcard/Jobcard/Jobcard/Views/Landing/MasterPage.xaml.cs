@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace Jobcard.Views.Landing
 {
@@ -26,18 +27,25 @@ namespace Jobcard.Views.Landing
         {
             items = new List<MasterMenuItem>();
             items.Add(new MasterMenuItem("Current Job Details", "document.png", Color.White, typeof(JobDetail)));
-            items.Add(new MasterMenuItem("Job List", "document.png", Color.White, typeof(JobList)));
-            items.Add(new MasterMenuItem("Add Job", "plus.png", Color.White, typeof(AddJob)));
+            items.Add(new MasterMenuItem("Job List", "list.png", Color.White, typeof(JobList)));
+            items.Add(new MasterMenuItem("Add Job", "newjb.png", Color.White, typeof(AddJob)));
 
-            items.Add(new MasterMenuItem("Add Client", "plus.png", Color.White, typeof(AddClient)));
-            items.Add(new MasterMenuItem("Add Location", "plus.png", Color.White, typeof(AddLocation)));
+            items.Add(new MasterMenuItem("Add Client", "employee.png", Color.White, typeof(AddClient)));
+            items.Add(new MasterMenuItem("Add Location", "MapIcon.png", Color.White, typeof(AddLocation)));
 
             if (Constants.Admin == 1)
             {
-                items.Add(new MasterMenuItem("Add Employee", "plus.png", Color.White, typeof(AddEmployee)));
-                items.Add(new MasterMenuItem("Employee Locations","document.png", Color.White, typeof(EmployeeLocals)));
+                items.Add(new MasterMenuItem("Employee Locations", "mapicon2.png", Color.White, typeof(EmployeeLocals)));             
             }
 
+            items.Add(new MasterMenuItem("Employee Options", "employee2.png", Color.White, typeof(AddEmployee)));
+
+            if (Constants.Admin == 1)
+            {              
+                items.Add(new MasterMenuItem("Client Options", "Edit.png", Color.White, typeof(EditClient)));       
+            }
+
+            items.Add(new MasterMenuItem("Help", "help.png", Color.White, typeof(Help)));
 
             ListView.ItemsSource = items;
         }
@@ -49,6 +57,10 @@ namespace Jobcard.Views.Landing
                 Application.Current.MainPage = new NavigationPage(new LoginPage());
             }
         }
+
+
+
+
         void Init()
         {
             App.StartCheckIfInternet(lbl_NoInternet, this);

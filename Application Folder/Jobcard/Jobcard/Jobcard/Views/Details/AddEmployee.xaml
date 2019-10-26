@@ -4,6 +4,22 @@
              x:Class="Jobcard.Views.Details.AddEmployee">
     <StackLayout x:Name="MainLayout">
         <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+        <ActivityIndicator x:Name="ActivitySpinner" Color="LightBlue" IsRunning="True" IsVisible="False"/>
+        
+        <Grid x:Name="grid1" BackgroundColor="White" IsVisible="False">
+            <Label Grid.Row="0" Grid.Column="0" x:Name="lblCheckAdmin" Text="Admin?" FontSize="Medium" FontAttributes="Bold" />
+            <Switch  Grid.Row="1" Grid.Column="0" x:Name="switchAdmin" IsToggled="False"/>
+            <Label Grid.Row="0" Grid.Column="1" x:Name="lblEditExisting" Text="Edit Existing?" FontSize="Medium" FontAttributes="Bold"/>
+            <Switch Grid.Row="1" Grid.Column="1" x:Name="switchExist" IsToggled="False" Toggled="OnToggle"/>
+        </Grid>
+        <Grid x:Name="grid2" IsVisible="False" BackgroundColor="White">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="lblEmployee" Text="Select Employee" FontSize="Medium" FontAttributes="Bold" IsVisible="True"/>
+            <Picker Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="pickEmployee" Title="Select Employee" IsVisible="True" SelectedIndexChanged ="IndexChanged"/>
+        </Grid>
+
+
+
+
 
         <Label x:Name="lblName" Text="Name" FontSize="Medium" FontAttributes="Bold"/>
         <Entry x:Name ="edtName" Placeholder="Name"/>
@@ -11,8 +27,7 @@
         <Entry x:Name ="edtSurname" Placeholder="Surname"/>
         <Label x:Name="lblContact" Text="Telephone Number" FontSize="Medium" FontAttributes="Bold"/>
         <Entry x:Name ="edtContact" Placeholder="Telephone Number"/>
-        <Label x:Name="lblCheckAdmin" Text="Admin?" FontSize="Medium" FontAttributes="Bold"/>
-        <Switch x:Name="switchAdmin" IsToggled="False" HorizontalOptions="StartAndExpand"/>
+
        
 
 
@@ -20,27 +35,16 @@
 
         <Label x:Name="lblPassword" Text="Password" FontSize="Medium" FontAttributes="Bold"/>
         <Entry x:Name ="edtPassword" Placeholder="Password" IsPassword="True"/>
+
+
+
+
+        <Grid>
+            <Button Grid.Row="0" Grid.Column="0" x:Name ="btnDeleteSelected" Text="DELETE USER" Clicked="BtnDeleteSelected_Clicked" TextColor="White" IsVisible="False"/>
+            <Button Grid.Row="0" Grid.Column="1" x:Name ="btnAddUser" Text="ADD USER" Clicked="AddUserProcedure" TextColor="White"/>
+        </Grid>
         
-        
-        
 
-
-        <Button x:Name ="btnAddUser" Text="ADD USER" Clicked="AddUserProcedure" TextColor="White"/>
-
-        <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <StackLayout x:Name="SubLayout" 
-                             Orientation="Vertical" 
-                             VerticalOptions="FillAndExpand" 
-                             RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}}"
-                              RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}}">
-            </StackLayout>
-
-            <ActivityIndicator IsRunning="False" Color="LightBlue" x:Name="ActivitySpinner"
-                                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
-                                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
-                                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
-
-        </RelativeLayout>
 
 
     </StackLayout>

@@ -37,3 +37,6 @@ D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcar
 D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard\obj\Debug\netstandard2.0\Views\Details\AddLocation.xaml.g.cs
 D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard\obj\Debug\netstandard2.0\XamlC.stamp
 D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard\obj\Debug\netstandard2.0\Views\Details\EmployeeLocals.xaml.g.cs
+D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard\obj\Debug\netstandard2.0\Views\Details\EditClient.xaml.g.cs
+D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard\obj\Debug\netstandard2.0\Jobcard.csprojAssemblyReference.cache
+D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard\obj\Debug\netstandard2.0\Views\Details\Help.xaml.g.cs

@@ -51,7 +51,7 @@ namespace Jobcard.Views.Details
                 ListView.ItemsSource = items;
             }
             catch (Exception ex)
-            { await DisplayAlert("Jobs", "No Jobs On List", "Okay"); }
+            { await DisplayAlert("Employee", "No Employees On List", "Okay"); }
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -104,7 +104,7 @@ namespace Jobcard.Views.Details
             }
 
             ActivitySpinner.IsVisible = false;
-            ListView.ItemsSource = items;
+            SetItems();
 
         }
     }

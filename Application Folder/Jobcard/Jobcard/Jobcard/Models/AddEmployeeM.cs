@@ -6,6 +6,7 @@ namespace Jobcard.Models
 {
     public class AddEmployeeM
     {
+        public int id { get; set; }
         public string EmpName { get; set; }
         public string EmpSurname { get; set; }
         public string EmpContact { get; set; }

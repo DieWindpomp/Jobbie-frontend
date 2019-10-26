@@ -16,8 +16,7 @@
         <Label x:Name="lblClientName" HorizontalTextAlignment="Start" FontSize="Medium"/>
         <Label x:Name="lblComment" HorizontalTextAlignment="Start" FontSize="Medium"/>
         <Grid BackgroundColor="White" VerticalOptions="EndAndExpand">
-            <ImageButton Grid.Column="0" x:Name="btnBack"/>
-            <Picker Grid.Column="1" x:Name ="pickAction" Title="Choose Action">
+            <Picker Grid.Column="0" x:Name ="pickAction" Title="Choose Action" Grid.ColumnSpan="2">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Complete</x:String>
@@ -25,10 +24,11 @@
                         <x:String>Cancel</x:String>
                         <x:String>Delete</x:String>
                         <x:String>View On Map</x:String>
+                        <x:String>Call Client</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
-            <ImageButton Grid.Column="2 " x:Name="btnConfirm" Clicked="btnConfirm_clicked"/>
+            <ImageButton Grid.Column="2" x:Name="btnConfirm" Clicked="BtnConfirm_clicked"/>
         </Grid>
 
 

@@ -18,7 +18,7 @@ namespace Jobcard.Views.Details
 	public partial class AddJob : ContentPage
 	{
         public List<Client> items;
-        public List<Location> locations;
+        public List<Locations> locations;
         public AddJob ()
 		{
 			InitializeComponent ();
@@ -34,30 +34,51 @@ namespace Jobcard.Views.Details
             lblClient.TextColor = Constants.MaintextColor;
             lblLocation.TextColor = Constants.MaintextColor;
             btnAddJob.BackgroundColor = Constants.MaintextColor;
+            lblEmployee.TextColor = Constants.MaintextColor;
+            
+
+
+            pickEmployee.IsVisible = false;
+            lblEmployee.IsVisible = false;
 
             SetClients();
+            SetEmployees();
 
             ActivitySpinner.IsRunning = false;
             ActivitySpinner.IsVisible = false;
         }
         async void AddJobProcedure(object sender, EventArgs e)
         {
-            string locationstring = pickLocation.SelectedItem.ToString();
-            int end = locationstring.IndexOf(" ", 0);
-            locationstring = locationstring.Substring(0, end - 0);
+            if (pickLocation.SelectedItem != null || edtDescription.Text != "" || pickUrgency.SelectedItem != null)
+            {
+                string locationstring = pickLocation.SelectedItem.ToString();
+                int end = locationstring.IndexOf(" ", 0);
+                locationstring = locationstring.Substring(0, end - 0);
 
+                ActivitySpinner.IsVisible = true;
+                ActivitySpinner.IsRunning = true;
 
-            ActivitySpinner.IsVisible = true;
-            ActivitySpinner.IsRunning = true;
+                Job job = new Job();
+                job.JobDescription = edtDescription.Text;
+                job.LocationID = int.Parse(locationstring);
+                job.Urgency = pickUrgency.SelectedItem.ToString();
+                job.Date = dpDate.Date;
+                job.Comment = edtComment.Text;
 
-            Job job = new Job();
-            job.JobDescription = edtDescription.Text;
-            job.LocationID = int.Parse(locationstring);
-            job.Urgency = pickUrgency.SelectedItem.ToString();
-            job.Date = dpDate.Date;
-            job.Comment = edtComment.Text;
-            job.EmpID = Constants.EmpID;
-            //empid = constants
+                if (Constants.Admin == 1)
+                {
+                    string employee = pickEmployee.SelectedItem.ToString();
+                    end = employee.IndexOf(" ", 0);
+                    employee = employee.Substring(0, end - 0);
+                    job.EmpID = int.Parse(employee);
+
+                }
+                else
+                {
+                    job.EmpID = Constants.EmpID;
+                }
+            
+            
 
 
             HttpClient client = new HttpClient();
@@ -79,6 +100,15 @@ namespace Jobcard.Views.Details
             }
             ActivitySpinner.IsRunning = false;
             ActivitySpinner.IsVisible = false;
+            }
+            else
+            {
+                ActivitySpinner.IsRunning = false;
+                ActivitySpinner.IsVisible = false;
+
+                await DisplayAlert("Job", "Not All Fields Entered", "Okay");
+
+            }
 
         }
 
@@ -121,16 +151,16 @@ namespace Jobcard.Views.Details
                 clientstring = clientstring.Substring(0, end - 0);
 
 
-                locations = new List<Location>();
+                locations = new List<Locations>();
                 ActivitySpinner.IsVisible = true;
                 HttpClient client = new HttpClient();
                 string url = Constants.URL + "/location/getclientlocations/" + clientstring;
                 var result = await client.GetAsync(url);
                 var json = await result.Content.ReadAsStringAsync();
-                locations = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Location>>(json);
+                locations = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Locations>>(json);
                 ActivitySpinner.IsVisible = false;
                 var list = new List<string>();
-                foreach (Location c in locations)
+                foreach (Locations c in locations)
                 {
                     list.Add(c.id + " " + c.Address);
                 }
@@ -141,5 +171,31 @@ namespace Jobcard.Views.Details
             ActivitySpinner.IsRunning = false;
             ActivitySpinner.IsVisible = false;
         }
-    }
+        async void SetEmployees()
+        {
+
+            if (Constants.Admin == 1)
+            {
+                List<EmployeeListModel> items = new List<EmployeeListModel>();
+                ActivitySpinner.IsVisible = true;
+                HttpClient client = new HttpClient();
+                string url = Constants.URL + "/employee/AllEmployees";
+                var result = await client.GetAsync(url);
+                var json = await result.Content.ReadAsStringAsync();
+                items = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EmployeeListModel>>(json);
+                ActivitySpinner.IsVisible = false;
+                var list = new List<string>();
+                foreach (EmployeeListModel emp in items)
+                {
+                    list.Add(emp.id + " " + emp.EmpName + " " + emp.EmpSurname);
+                }
+                pickEmployee.ItemsSource = list;
+                pickEmployee.IsVisible = true;
+                lblEmployee.IsVisible = true;
+            }
+        }
+
+
+
+        }
 }

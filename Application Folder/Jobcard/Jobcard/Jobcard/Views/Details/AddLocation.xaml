@@ -14,7 +14,7 @@
         <Entry x:Name ="edtAddress" Placeholder="Address"/>
 
         <Label x:Name="lblCoordinates" Text="Coordinates" FontSize="Medium" FontAttributes="Bold"/>
-        <Entry x:Name ="edtCoord" Placeholder="Coordinates"/>
+        <Entry x:Name ="edtCoord" Placeholder="Coordinates" Completed="EdtCoord_Completed"/>
 
         <Button x:Name ="btnAddLocation" Text="ADD LOCATION" Clicked="BtnAddLocation_Clicked" TextColor="White"/>
     </StackLayout>

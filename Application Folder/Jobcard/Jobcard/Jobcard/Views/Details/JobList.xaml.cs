@@ -86,7 +86,7 @@ namespace Jobcard.Views.Details
             }
 
 
-            ListView.ItemsSource = items;
+            SetItems();
 
         }
     }

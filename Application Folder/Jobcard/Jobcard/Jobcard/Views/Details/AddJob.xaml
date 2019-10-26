@@ -8,39 +8,43 @@
         <Label x:Name="lblDescrition" Text="Description" FontSize="Medium" FontAttributes="Bold"/>
         <Entry x:Name ="edtDescription" Placeholder="Description"/>
         <Grid BackgroundColor="White">
+            
             <Label Grid.Column="0" Grid.Row="0" x:Name="lblClient" Text="Client" FontSize="Medium" FontAttributes="Bold"/>
-            <Picker Grid.Column="0" Grid.Row="1" x:Name="pickClient" Title="Select Client" SelectedIndexChanged="PickClient_SelectedIndexChanged"/>
+            <Picker Grid.Column="0" Grid.Row="1" x:Name="pickClient" Title="Select Client" SelectedIndexChanged="PickClient_SelectedIndexChanged" />
             <Label Grid.Column="1" Grid.Row="0" x:Name="lblLocation" Text="Location" FontSize="Medium" FontAttributes="Bold"/>
-        <Picker Grid.Column="1" Grid.Row="1" x:Name="pickLocation" Title="Select Location" SelectedIndexChanged="PickLocation_SelectedIndexChanged"/>
+            <Picker Grid.Column="1" Grid.Row="1" x:Name="pickLocation" Title="Select Location" SelectedIndexChanged="PickLocation_SelectedIndexChanged"/>
+
+            <Label Grid.Column="0" Grid.Row="2" x:Name="lblUrgency" Text="Urgency" FontSize="Medium" FontAttributes="Bold"/>
+            <Picker Grid.Column="0" Grid.Row="3" x:Name ="pickUrgency" Title="Choose Urgency">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>High</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>Low</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Grid.Column="1" Grid.Row="2" x:Name="lblEmployee" Text="Select Employee" FontSize="Medium" FontAttributes="Bold"/>
+            <Picker Grid.Column="1" Grid.Row="3" x:Name="pickEmployee" Title="Select Employee"/>
+
+
+
+
+
         </Grid>
-        <Label x:Name="lblUrgency" Text="Urgency" FontSize="Medium" FontAttributes="Bold"/>
-        <Picker x:Name ="pickUrgency" Title="Choose Urgency">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>High</x:String>
-                    <x:String>Medium</x:String>
-                    <x:String>Low</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
+        
 
         <Label x:Name="lblDate" Text="Select Date" FontSize="Medium" FontAttributes="Bold"/>
         <DatePicker x:Name ="dpDate"/>
 
         <Label x:Name="lblComment" Text="Add Comment" FontSize="Medium" FontAttributes="Bold"/>
         <Entry x:Name ="edtComment" Placeholder="Add Comment Here"/>
-
+        
+        
         <Button x:Name ="btnAddJob" Text="ADD JOB" Clicked="AddJobProcedure" TextColor="White"/>
         
-        <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <StackLayout x:Name="SubLayout" 
-                             Orientation="Vertical" 
-                             VerticalOptions="FillAndExpand" 
-                             RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}}"
-                              RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}}">
-            </StackLayout>
-
-        </RelativeLayout>
+       
 
 
     </StackLayout>

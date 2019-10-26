@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Jobcard.Views.Details.EditClient">
+    <StackLayout>
+        <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+        
+        <ActivityIndicator x:Name="ActivitySpinner" Color="LightBlue" IsRunning="True"/>
+        
+            <Picker x:Name ="pickAction" Title="Choose Action">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Edit Name</x:String>
+                        <x:String>Edit Surname</x:String>
+                        <x:String>Edit Contact Number</x:String>
+                        <x:String>Delete Client</x:String>
+                        <x:String>Edit Locations</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        <Picker x:Name ="pickAction2" Title="Choose Action" IsVisible="False">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Edit Coordinates</x:String>
+                    <x:String>Edit Address</x:String>
+                    <x:String>Delete Location</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+
+
+        <ListView x:Name="listview" SeparatorVisibility="Default" VerticalOptions="StartAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid BackgroundColor="White">
+                            <Label Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Text="{Binding CName}" TextColor="Black" FontSize="Small"/>
+                            <Label Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Text="{Binding CSurname}" TextColor="Black" FontSize="Small"/>
+                            <Label Grid.Column="2" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Text="{Binding Company}" TextColor="Black" FontSize="Small"/>
+                            <Label Grid.Column="3" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Text="{Binding CContact}" TextColor="Black" FontSize="Small"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="listview2" SeparatorVisibility="Default" IsVisible="False" VerticalOptions="StartAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid BackgroundColor="White">
+                            <Label Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Text="{Binding id}" TextColor="Black" FontSize="Small"/>
+                            <Label Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Text="{Binding Address}" TextColor="Black" FontSize="Small"/>
+                            <Label Grid.Column="2" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Text="{Binding Coordinates}" TextColor="Black" FontSize="Small"/>
+                            
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Grid.Column="2" x:Name="btnback" Text="BACK" Clicked="Btnback_Clicked" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White" IsVisible="False"/>
+
+    </StackLayout>
+</ContentPage>
