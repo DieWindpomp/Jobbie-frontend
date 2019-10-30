@@ -128,7 +128,5 @@ D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcar
 D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard.Android\obj\Debug\81\res\drawable\help.png
 D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard.Android\obj\Debug\81\linksrc\Jobcard.dll.mdb
 D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard.Android\obj\Debug\81\linksrc\Xamarin.Essentials.dll.mdb
-D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard\bin\Debug\netstandard2.0\Jobcard.dll
-D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard.Android\bin\Debug\Jobcard.dll.mdb
 D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard.Android\obj\Debug\81\linksrc\Jobcard.dll.mdb
 D:\UNI\Btech Project\Gitkraken\Jobbie-frontend\Application Folder\Jobcard\Jobcard\Jobcard.Android\obj\Debug\81\linksrc\Xamarin.Essentials.dll.mdb

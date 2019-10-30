@@ -42,7 +42,8 @@ namespace Jobcard.Views.Landing
 
             if (Constants.Admin == 1)
             {              
-                items.Add(new MasterMenuItem("Client Options", "Edit.png", Color.White, typeof(EditClient)));       
+                items.Add(new MasterMenuItem("Client Options", "Edit.png", Color.White, typeof(EditClient)));
+                items.Add(new MasterMenuItem("Completed Jobs", "employee2.png", Color.White, typeof(CompletedJobs)));
             }
 
             items.Add(new MasterMenuItem("Help", "help.png", Color.White, typeof(Help)));

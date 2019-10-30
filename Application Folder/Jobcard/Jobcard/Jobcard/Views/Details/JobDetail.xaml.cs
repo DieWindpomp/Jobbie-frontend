@@ -33,6 +33,7 @@ namespace Jobcard.Views.Details
         void Init()
         {
             App.StartCheckIfInternet(lbl_NoInternet, this);
+            lblNoItems.IsVisible = false;
             GetJob(Constants.EmpID);
             lblJobLocation.TextColor= Constants.MaintextColor;
             lblJobDescription.TextColor = Constants.MaintextColor;
@@ -76,6 +77,7 @@ namespace Jobcard.Views.Details
             {
                 await DisplayAlert("Jobs", "No Active Job", "Okay");
                 btnConfirm.IsEnabled = false;
+                lblNoItems.IsVisible = true;
             }
 
 
@@ -205,7 +207,7 @@ namespace Jobcard.Views.Details
         {
             string Comment = await InputBox(this.Navigation,job.Comment);
             
-            if (Comment != null && Comment != "" && c.isAllString(Comment)==true)
+            if (Comment != null && Comment != "")
             {
                 HttpClient client = new HttpClient();
                 string url = Constants.URL + $"/job/AddComment/" + jobid+"/"+ Comment;
@@ -232,10 +234,6 @@ namespace Jobcard.Views.Details
             else if (Comment == null)
             {
                 await DisplayAlert("Job", "Operation Cancelled", "Okay");
-            }
-            else if (c.isAllString(Comment) != true)
-            {
-                await DisplayAlert("Job", "Comment should contain only letters A-Z", "Okay");
             }
  
         }

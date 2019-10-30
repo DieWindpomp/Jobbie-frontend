@@ -4,6 +4,7 @@
              x:Class="Jobcard.Views.Details.JobDetail">
     <StackLayout x:Name="MainLayout">
         <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+        <Label x:Name="lblNoItems" Text="No Active Job" HorizontalTextAlignment="Center" IsVisible="False"/>
         <ActivityIndicator IsRunning="False" Color="LightBlue" x:Name="ActivitySpinner"
                                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"

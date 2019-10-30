@@ -27,13 +27,24 @@ namespace Jobcard.Views.Details
                
                 await Browser.OpenAsync(Constants.HelpURL + "/downloadFile", BrowserLaunchMode.SystemPreferred);
             Application.Current.MainPage = new NavigationPage(new MasterDetail());
-            ActivitySpinner.IsVisible = false;
+
             ActivitySpinner.IsRunning = false;
         }
         private void Init()
         {
             btnDocument.BackgroundColor = Constants.MaintextColor;
+            btnTutorial.BackgroundColor = Constants.MaintextColor;
+        }
 
+        private async void BtnTutorial_Clicked(object sender, EventArgs e)
+        {
+            ActivitySpinner.IsVisible = true;
+            ActivitySpinner.IsRunning = true;
+
+            await Browser.OpenAsync(Constants.HelpURL + "/downloadTutorial", BrowserLaunchMode.SystemPreferred);
+            Application.Current.MainPage = new NavigationPage(new MasterDetail());
+
+            ActivitySpinner.IsRunning = false;
         }
     }
 }

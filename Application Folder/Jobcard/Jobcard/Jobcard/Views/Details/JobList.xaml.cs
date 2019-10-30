@@ -34,12 +34,14 @@ namespace Jobcard.Views.Details
         void Init()
         {
             App.StartCheckIfInternet(lbl_NoInternet, this);
+            lblNoItems.IsVisible = false;
         }
         async void SetItems()
         {
 
             try
             {
+                lblNoItems.IsVisible = false;
                 items = new List<JobListItem>();
                 ActivitySpinner.IsVisible = true;
                 HttpClient client = new HttpClient();
@@ -51,7 +53,9 @@ namespace Jobcard.Views.Details
                 ListView.ItemsSource = items;
             }
             catch (Exception ex)
-            { await DisplayAlert("Jobs", "No Jobs On List", "Okay"); }
+            { await DisplayAlert("Jobs", "No Jobs On List", "Okay");
+                lblNoItems.IsVisible = true;
+            }
         }
 
         

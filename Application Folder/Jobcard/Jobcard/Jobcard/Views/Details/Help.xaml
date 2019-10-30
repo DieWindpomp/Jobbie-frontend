@@ -4,7 +4,8 @@
              x:Class="Jobcard.Views.Details.Help">
     <ContentPage.Content>
         <StackLayout>
-            <ActivityIndicator x:Name="ActivitySpinner" Color="LightBlue"/>
+            <ActivityIndicator x:Name="ActivitySpinner" Color="LightBlue" />
+            <Button x:Name ="btnTutorial" Text="VIEW TUTORIAL" Clicked="BtnTutorial_Clicked"  TextColor="White"/>
             <Button x:Name ="btnDocument" Text="VIEW MANUAL" Clicked="BtnDocument_Clicked" TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>

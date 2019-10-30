@@ -16,7 +16,7 @@ namespace Jobcard.Models
 
         public static int Admin;
 
-        public static string HelpURL = "http://10.0.0.13:3000";
+        public static string HelpURL = "http://0027a23f.ngrok.io";
 
         public static string URL = HelpURL + "/api";
 

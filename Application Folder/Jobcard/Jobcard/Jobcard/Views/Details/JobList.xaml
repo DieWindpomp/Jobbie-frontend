@@ -4,6 +4,7 @@
              x:Class="Jobcard.Views.Details.JobList">
     <StackLayout x:Name="MainLayout">
         <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+        <Label x:Name="lblNoItems" Text="No Jobs in List" HorizontalTextAlignment="Center" IsVisible="False"/>
         <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <ListView x:Name="listview" SeparatorVisibility="Default">
                 <ListView.ItemTemplate>
